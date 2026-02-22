@@ -29,7 +29,7 @@ module tt_um_example (
   assign finish = uio_in[1];
   assign data_in = uio_in[3:2];
 
-  assign uio_out[3:0] = 4'd0;
+  assign uio_out[3:0] = 4'd0; 
   assign uio_out[5:4] = range;
   assign uio_out[6] = error;
   assign uio_out[7] = 1'b0;
