@@ -29,6 +29,7 @@ module tt_um_example (
   assign finish = uio_in[1];
   assign data_in = uio_in[3:2];
 
+  assign uio_out[3:0] = 4'd0;
   assign uio_out[5:4] = range;
   assign uio_out[6] = error;
   assign uio_out[7] = 1'b0;
@@ -39,8 +40,7 @@ module tt_um_example (
                        .data_in, .go, .finish, .range, .error);
 
   // List all unused inputs to prevent warnings
-  wire _unused = &{ena, ui_in, range, error, uio_in[7:4], 
-                   uio_out[3:0], 1'b0};
+  wire _unused = &{ena, ui_in, range, error, uio_in[7:4], 1'b0};
 
 endmodule
 
