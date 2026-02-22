@@ -46,7 +46,7 @@ module RangeFinder
    enum logic [1:0] {IDLE, RECEIVING, DONE, ERROR} currState, nextState;
 
    logic [WIDTH-1:0] max, min, reg_max, reg_min;
-   logic [WIDTH-1:0] final_max, final_min;
+   logic [WIDTH-1:0] final_max, final_min; 
 
    // FSM next currState logic
    always_comb begin
