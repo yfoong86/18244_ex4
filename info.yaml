@@ -43,13 +43,13 @@ pinout:
   uo[7]: ""
 
   # Bidirectional pins
-  uio[0]: ""
-  uio[1]: ""
-  uio[2]: ""
-  uio[3]: ""
-  uio[4]: ""
-  uio[5]: ""
-  uio[6]: ""
+  uio[0]: "go"
+  uio[1]: "finish"
+  uio[2]: "data_in[0]"
+  uio[3]: "data_in[1]"
+  uio[4]: "range[0]"
+  uio[5]: "range[1]"
+  uio[6]: "error"
   uio[7]: ""
 
 # Do not change!

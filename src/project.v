@@ -17,16 +17,26 @@ module tt_um_example (
 );
 
   // All output pins must be assigned. If not used, assign to 0.
-  assign uo_out  = ui_in + uio_in;  // Example: ou_out is the sum of ui_in and uio_in
-  assign uio_out = 0;
-  assign uio_oe  = 0;
 
   logic [15:0] data_in, range;
   logic go, finish, error;
 
+  assign uio_oe[3:0] = 4'd0;
+  assign uio_oe[6:4] = 3'b111;
+  assign uio_oe[7] = 1'b1;
 
-  RangeFinder rf0(.clock(clk), .reset(~rst_n), 
-                  .data_in, .go, .finish, .range, .error);
+  assign go = uio_in[0];
+  assign finish = uio_in[1];
+  assign data_in = uio_in[3:2];
+
+  assign uio_out[5:4] = range;
+  assign uio_out[6] = error;
+  assign uio_out[7] = 1'b0;
+
+  assign uo_out = 8'd50;
+ 
+  RangeFinder #(2) rf0(.clock(clk), .reset(~rst_n), 
+                       .data_in, .go, .finish, .range, .error);
 
   // List all unused inputs to prevent warnings
   wire _unused = &{ena, 1'b0};
